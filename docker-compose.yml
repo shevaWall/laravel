@@ -11,6 +11,7 @@ services:
 
   db:
     image: library/mariadb:latest
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE_NAME=laravel
@@ -20,6 +21,14 @@ services:
       - 3306:3306
     volumes:
       - ./docker/mariadb/dbdata:/var/lib/mysql
+
+  #phpmyadmin:
+  #  image: library/phpmyadmin:fpm-alpine
+  #  restart: always
+  #  ports:
+  #    - 8080:80
+  #  environment:
+  #    - PMA_ARBITRARY=1
 
   nginx:
     image: library/nginx:alpine
