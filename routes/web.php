@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('users/{id}', [TestController::class, "user"]);
+Route::get("user{id?}", [UserController::class, "user"]);
+
+Route::match(['get', 'post'],'form', [FormController::class, "form"]);

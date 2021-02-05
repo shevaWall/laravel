@@ -2,7 +2,9 @@ version: "3.9"
 
 services:
   app:
-    image: library/php:8-fpm-alpine
+    #image: library/php:8-fpm-alpine
+    build:
+      context: ./docker/app
     volumes:
       - ./:/var/www/
     working_dir: /var/www
