@@ -21,7 +21,7 @@ class FormController extends Controller
     }
 
     private function dbUsers(){
-        return DB::table('users')->get();
+        return DB::table('users')->pluck('id');
     }
 
 }
