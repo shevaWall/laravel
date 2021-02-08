@@ -3,6 +3,7 @@
 use App\Http\Controllers\ElectronicQController;
 use App\Http\Controllers\ElectronicQueueController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\NamesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,8 +36,12 @@ Route::get ("/", [ElectronicQueueController::class, "index"]);
 // оторбражение поступивших задач
 Route::get ("/queue", [ElectronicQController::class, "index"]);
 
-
-
 Route::get("user{id?}", [UserController::class, "user"]);
 
 Route::match(['get', 'post'],'form', [FormController::class, "form"]);
+
+
+Route::get ("names", [NamesController::class, "index"]);
+Route::get ("names/create", [NamesController::class, 'create']);
+Route::get ("names/update{id}", [NamesController::class, 'update']);
+Route::get ("names/{id}", [NamesController::class, 'show']);
