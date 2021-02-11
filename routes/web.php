@@ -24,22 +24,16 @@ use Illuminate\Support\Facades\Route;
 
 // отображение списка для выбора задачи
 Route::get ("/", [ElectronicQueueController::class, "index"]);
+Route::get ("/queue", [ElectronicQueueController::class, "queue"]);
+Route::get("/queue/addTask{id}", [ElectronicQueueController::class, "addTask"]);
+Route::get("/queue/gowork", [ElectronicQueueController::class, "goWork"]);
 
-// добавление задачи
-/*Route::get ("/addTask{id}", [ElectronicQueueController::class, "addTask"])
-    ->where('id', '[0-9]+');*/
 
-// принятия задачи в работу
-/*Route::get ("/workTask", [ElectronicQueueController::class, "workTask"])
-    ->name('/');*/
 
-// оторбражение поступивших задач
-Route::get ("/queue", [ElectronicQController::class, "index"]);
 
 Route::get("user{id?}", [UserController::class, "user"]);
 
 Route::match(['get', 'post'],'form', [FormController::class, "form"]);
-
 
 Route::get ("names", [NamesController::class, "index"]);
 Route::get ("names/create", [NamesController::class, 'create']);
